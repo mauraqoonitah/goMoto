@@ -14,6 +14,8 @@ class EventServiceProvider extends ServiceProvider
      *
      * @var array<class-string, array<int, class-string>>
      */
+    
+    // This event listener will send the email verification link to the user.
     protected $listen = [
         Registered::class => [
             SendEmailVerificationNotification::class,

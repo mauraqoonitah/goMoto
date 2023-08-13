@@ -19,9 +19,19 @@ Route::get('/', function () {
 })->name('index');
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+//only authenticated can access this group
+Route::group(['middleware' => ['auth']], function() {
+    //only verified account can access with this group
+    Route::group(['middleware' => ['verified']], function() {
+            /**
+             * Dashboard Routes
+             */
+            
+            Route::get('/dashboard', function () {
+                return view('dashboard');
+            })->name('dashboard');
+    });
+});
 
 
 require __DIR__.'/auth.php';
