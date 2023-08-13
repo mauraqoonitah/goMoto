@@ -23,13 +23,15 @@ Route::get('/', function () {
 Route::group(['middleware' => ['auth']], function() {
     //only verified account can access with this group
     Route::group(['middleware' => ['verified']], function() {
-            /**
-             * Dashboard Routes
-             */
-            
             Route::get('/dashboard', function () {
                 return view('dashboard');
             })->name('dashboard');
+            
+            Route::get('/profile', [UserController::class, 'profile'])
+            ->name('profile');
+            
+            Route::post('editProfile', [UserController::class, 'editProfile'])
+            ->name('editProfile');
     });
 });
 

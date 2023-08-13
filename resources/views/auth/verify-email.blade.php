@@ -24,18 +24,19 @@
                 <div class="col-8 ">
                     <div class="mb-4 text-sm text-gray-600">
                         <p class="fs-4">Verify your email address</p>
-                        <p>Thanks for signing up! Before getting started, could you verify your email address by
+                        <p class="mb-3">Thanks for signing up! Before getting started, could you verify your email
+                            address by
                             clicking on the link we just emailed to you?</p>
                     </div>
-
                     @if (session('status') == 'verification-link-sent')
-                    <div class="mb-4 font-medium text-sm text-green-600">
-                        {{ __('A new verification link has been sent to the email address you provided during
-                        registration.') }}
+                    <div class="mb-2 fw-bolder font-medium text-sm text-green-600 small"><i>
+                            {{ __('A new verification link has been sent to the email address you provided during
+                            registration.') }}</i>
                     </div>
                     @endif
 
-                    <div class="mt-5 flex items-center justify-between">
+
+                    <div class="flex items-center justify-between">
                         <form method="POST" action="{{ route('verification.send') }}">
                             @csrf
 

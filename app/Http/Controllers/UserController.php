@@ -8,6 +8,7 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\Auth\LoginRequest;
+use File;
 
 
 use App\Models\User;
@@ -36,5 +37,34 @@ class UserController extends Controller
         }
         return redirect()->route('login');
 
+    }
+    public function profile()
+    {
+        $user = User::find(Auth::user()->id);
+        
+        return view('profile', [
+            'user' => $user
+        ]);
+
+    }
+    public function editProfile(Request $request)
+    {
+        $user = User::find($request->user_id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+
+        if ($request->hasFile('avatar') && $request->avatar != '') {
+            $name = $request->file('avatar')->getClientOriginalName();
+            $image_path = $request->file('avatar')->store('image', 'public');
+            $path = storage_path().'/app/public/'.$user->avatar;
+            if(File::exists($path)) {
+                File::delete($path);
+            }
+            $user->avatar = $image_path;
+        }
+      
+        $user->save();
+        
+        return redirect('profile')->with('status', 'Profile updated!');
     }
 }

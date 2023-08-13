@@ -100,21 +100,40 @@
             </div>
             <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-start">
-                    <li class="nav-item"><a class="nav-link" href="{{route('index')}}">
-                            <i class="fa-solid fa-motorcycle fs-3"></i>
+                    <li class="nav-item fs-4"><a class="nav-link" href="{{route('index')}}">
+                            <i class="fa-solid fa-motorcycle me-2"></i>GoMoto
                         </a>
                     </li>
                 </ul>
-                <ul class="navbar-nav flex-grow-1 justify-content-end">
+                <ul class="navbar-nav flex-grow-1 justify-content-end align-items-center">
                     <li class="nav-item me-5"><a class="nav-link" href="{{route('index')}}#shopnow">
                             Product</a></li>
                     @auth
-                    <li class="nav-item me-5"><a class="nav-link" href="{{route('dashboard')}}#cart"><i
-                                class="fa-solid fa-cart-shopping me-2"></i>Cart
-                        </a></li>
-                    <li class="nav-item me-5"><a class="nav-link" href="{{route('logout')}}">
-                            <i class="fa-solid fa-right-to-bracket me-2"></i> Logout
-                        </a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            @if(Auth::user()->avatar)
+                            <img src="{{asset('storage/'.Auth::user()->avatar)}}" alt="avatar" title="avatar"
+                                width="20" />
+                            @else
+                            <i class="fa-solid fa-circle-user"></i>
+                            @endif
+                            {{Auth::user()->name}}
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                            <li class="nav-item"><a class="nav-link dropdown-item ps-3" href="{{route('dashboard')}}"><i
+                                        class="fa-solid fa-house me-2"></i>Dashboard</a></li>
+                            <li class="nav-item"><a class="nav-link dropdown-item ps-3"
+                                    href="{{route('dashboard')}}#cart"><i class="fa-solid fa-cart-shopping me-2"></i>My
+                                    Cart</a></li>
+                            <li class="nav-item"><a class="nav-link dropdown-item ps-3" href="{{route('profile')}}"><i
+                                        class="fa-solid fa-user-pen me-2"></i>Edit
+                                    Profile</a></li>
+                            <li class="nav-item"><a class="nav-link dropdown-item ps-3" href="{{route('logout')}}"><i
+                                        class="fa-solid fa-right-to-bracket me-2"></i> Logout</a></li>
+                        </ul>
+                    </li>
+
                     @endauth
 
                     @guest
