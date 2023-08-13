@@ -12,9 +12,13 @@
         <h5>{{Auth::user()->email ?? ''}}</h5>
         @else
         <section class="form-signin w-100 m-auto py-5 my-5" id="signin">
+
             <form method="POST" action="{{ route('storeLogin') }}" enctype="multipart/form-data">
                 @csrf
                 <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+                @if($errors->any())
+                {!! implode('', $errors->all('<div class="text-danger mb-2">:message</div>')) !!}
+                @endif
 
                 <div class="form-floating">
                     <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"
@@ -58,7 +62,9 @@
                                 <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                                     @csrf
                                     <h1 class="h3 mb-3 fw-normal">Create your account</h1>
-
+                                    @if($errors->any())
+                                    {!! implode('', $errors->all('<div class="text-danger mb-2">:message</div>')) !!}
+                                    @endif
                                     <div class="form-floating">
                                         <input type="text" class="form-control" id="floatingInputName"
                                             placeholder="Your Name" name="name">
