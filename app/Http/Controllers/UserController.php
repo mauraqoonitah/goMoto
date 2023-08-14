@@ -33,7 +33,11 @@ class UserController extends Controller
     public function dashboard()
     {
         if(Auth::user()){
-            return view('dashboard', []);
+            if((Auth::user()->role) == '1'){
+                return redirect()->route('admin.index');
+            }
+            return redirect()->intended(RouteServiceProvider::DASHBOARD);
+
         }
         return redirect()->route('login');
 

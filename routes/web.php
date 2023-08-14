@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Auth;
 /*
 |--------------------------------------------------------------------------
@@ -23,15 +25,19 @@ Route::get('/', function () {
 Route::group(['middleware' => ['auth']], function() {
     //only verified account can access with this group
     Route::group(['middleware' => ['verified']], function() {
-            Route::get('/dashboard', function () {
-                return view('dashboard');
-            })->name('dashboard');
+            Route::get('/dashboard', [UserController::class, 'dashboard'])
+            ->name('dashboard');
             
             Route::get('/profile', [UserController::class, 'profile'])
             ->name('profile');
             
             Route::post('editProfile', [UserController::class, 'editProfile'])
             ->name('editProfile');
+            
+            // admin
+            Route::resource('admin', AdminController::class);
+            Route::resource('product', ProductController::class);
+
     });
 });
 
