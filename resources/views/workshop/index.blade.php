@@ -12,6 +12,8 @@
                 <div class="col-10">
                     @auth
                     <div class="container my-5">
+                        <a href="{{route('admin.index')}}" class="my-3">Back</a>
+
                         <h1 class="mb-3">Show Workshops</h1>
                         @if (session('success'))
                         <div class="alert alert-success d-flex align-items-center" role="alert">
@@ -22,7 +24,8 @@
                         </div>
                         @endif
                         <form action="{{route('workshop.create')}}" method="GET" enctype="multipart/form-data">
-                            <button type="submit" class="btn btn-success mb-3">Add Workshop</button>
+                            <button type="submit" class="btn btn-success mb-3"><i class="fa-solid fa-plus me-2"></i>Add
+                                Workshop</button>
                         </form>
 
 
@@ -30,13 +33,14 @@
                             <table class="table table-bordered table-hover table-striped">
                                 <thead>
                                     <tr>
-                                        <th scope="col">#</th>
+                                        <th scope="col">No.</th>
                                         <th scope="col">Code</th>
                                         <th scope="col">Name</th>
                                         <th scope="col">Address</th>
                                         <th scope="col">Phone Number</th>
                                         <th scope="col">Distance</th>
                                         <th scope="col">Action</th>
+                                        <th scope="col">Products</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -49,7 +53,7 @@
                                         <td>{{$workshop->phone_number}}</td>
                                         <td>{{$workshop->distance}}</td>
                                         <td>
-                                            <div class="d-grid gap-2 d-block">
+                                            <div class="gap-2 d-block">
 
                                                 <a href="{{route('workshop.edit',$workshop->id)}}"
                                                     class="btn btn-warning"><i class="fa-solid fa-pencil"></i>
@@ -64,6 +68,11 @@
                                                             class="fa-solid fa-trash-can"></i></button>
                                                 </form>
                                             </div>
+                                        </td>
+                                        <td>
+                                            <a href="{{route('motorcycle.show',$workshop->id)}}"
+                                                class="btn btn-primary"><i class="fa-solid fa-eye"></i>View
+                                            </a>
                                         </td>
                                     </tr>
                                     @endforeach

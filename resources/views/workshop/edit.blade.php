@@ -12,6 +12,7 @@
                 <div class="col-10">
                     @auth
                     <div class="container my-5">
+                        <a href="{{route('workshop.index')}}" class="my-3">Back</a>
                         <h1 class="mb-3">Edit workshop</h1>
 
                         <form action="{{route('workshop.update', $workshop->id)}}" method="POST"
@@ -44,7 +45,8 @@
                                 <input type="number" step="0.01" class="form-control" id="distance" name="distance"
                                     value="{{$workshop->distance}}">
                             </div>
-                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="submit" class="btn btn-primary"><i
+                                    class="fa-solid fa-floppy-disk me-2"></i>Submit</button>
 
                         </form>
 

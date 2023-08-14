@@ -12,6 +12,8 @@
                 <div class="col-10">
                     @auth
                     <div class="container my-5">
+                        <a href="{{route('workshop.index')}}" class="my-3">Back</a>
+
                         <h1 class="mb-3">Add New Workshop</h1>
                         @if (session('status'))
                         <div class="alert alert-success d-flex align-items-center" role="alert">
@@ -55,7 +57,8 @@
                                 <input type="number" step="0.01" class="form-control" id="distance" name="distance"
                                     placeholder="5.2" required>
                             </div>
-                            <button type="submit" class="btn btn-primary">Create</button>
+                            <button type="submit" class="btn btn-primary"><i
+                                    class="fa-solid fa-floppy-disk me-2"></i>Submit</button>
 
                         </form>
 

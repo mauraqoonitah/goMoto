@@ -20,9 +20,6 @@
                         <form action="{{route('workshop.index')}}" method="GET" enctype="multipart/form-data">
                             <button type="submit" class="btn btn-primary mb-3">Show Workshop</button>
                         </form>
-                        <form action="{{route('workshop.create')}}" method="GET" enctype="multipart/form-data">
-                            <button type="submit" class="btn btn-primary mb-3">Add Workshop</button>
-                        </form>
                     </div>
                     @endauth
 
