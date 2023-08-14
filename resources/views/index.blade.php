@@ -29,22 +29,39 @@
             </div>
         </div>
 
-        <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3" id="shopnow">
-            <div class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-                <div class="my-3 py-3">
-                    <h2 class="display-5">Another headline</h2>
-                    <p class="lead">And an even wittier subheading.</p>
+        <div class="container">
+            <h2 class="text-center my-5">Booking Service</h2>
+
+            <div class="row">
+                @foreach ($workshops as $workshop)
+                <div class="col-4">
+                    <div class="card mb-3 p-2">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bolder mb-3">{{$workshop->name}}</h5>
+                            <h6 class="card-subtitle mb-2 fw-light">{{$workshop->address}}</h6>
+                            <div class="card-subtitle mb-2 fw-light small text-secondary">{{$workshop->distance}}km
+                            </div>
+
+                            <div class="row bg-body-secondary rounded d-flex align-items-center my-4">
+                                <div class="col-9">
+                                    <p class="card-text">
+                                        {{$workshop->phone_number}}</p>
+                                </div>
+                                <div class="col-3 px-3">
+                                    <button type="button" class="btn btn-sm">
+                                        <i class="fa-solid fa-square-phone-flip fs-2"></i>
+                                    </button>
+                                </div>
+
+                            </div>
+
+                            <a class="card-link text-decoration-none"
+                                href="{{route('product.show', $workshop->id)}}">View Products <i
+                                    class="fa-solid fa-chevron-right small"></i></a>
+                        </div>
+                    </div>
                 </div>
-                <div class="bg-body-tertiary shadow-sm mx-auto"
-                    style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-            </div>
-            <div class="bg-body-tertiary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-                <div class="my-3 p-3">
-                    <h2 class="display-5">Another headline</h2>
-                    <p class="lead">And an even wittier subheading.</p>
-                </div>
-                <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
-                </div>
+                @endforeach
             </div>
         </div>
 

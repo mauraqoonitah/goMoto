@@ -73,3 +73,18 @@
     }
   }
   
+/* input date styles */
+input[type="date"]{
+    background-color: lightgrey;
+    padding: 5px;
+    border: none;
+    outline: none;
+    border-radius: 0 5px 5px 0;
+    margin-bottom: 10px;
+}
+::-webkit-calendar-picker-indicator{
+    background-color: #ffffff;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+}

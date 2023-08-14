@@ -5,6 +5,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\WorkshopController;
 use App\Http\Controllers\MotorcycleController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\Auth;
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +19,11 @@ use App\Http\Controllers\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('index');
+Route::get('/', [HomeController::class, 'index'])
+->name('index');
+
+Route::resource('/product', HomeController::class);
+
 
 
 //only authenticated can access this group
@@ -35,6 +39,9 @@ Route::group(['middleware' => ['auth']], function() {
             Route::post('editProfile', [UserController::class, 'editProfile'])
             ->name('editProfile');
             
+            Route::resource('/booking', BookingController::class);
+
+
             // admin
             Route::resource('admin', AdminController::class);
             Route::resource('workshop', WorkshopController::class);
