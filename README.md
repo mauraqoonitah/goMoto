@@ -1,6 +1,18 @@
 # goMoto
 goMoto is a booking app that allows users to book motorcycle product online and see orders history. Users need to create an account to access features.
 
+## Run This
+- Migrate
+1. ```php artisan migrate```
+
+- Seed
+1. ```php artisan db:seed --class=RoleSeeder```
+2. ```php artisan db:seed --class=UserSeeder```
+3. ```php artisan db:seed --4. class=WorkshopSeeder```
+5. ```php artisan db:seed --6. class=MotorcycleSeeder```
+7. ```php artisan db:seed --class=BookingSeeder```
+
+
 ### Project 1
 Objective:
 • Showing PHP laravel skills
