@@ -17,11 +17,11 @@
                         <p class="">{{Auth::check() ? Auth::user()->email : ''}}</p>
                         <p class="lead">Only admin can access this section.</p>
                         <hr>
-                        <form action="{{route('product.index')}}" method="GET" enctype="multipart/form-data">
-                            <button type="submit" class="btn btn-primary mb-3">Show Product</button>
+                        <form action="{{route('workshop.index')}}" method="GET" enctype="multipart/form-data">
+                            <button type="submit" class="btn btn-primary mb-3">Show Workshop</button>
                         </form>
-                        <form action="{{route('product.create')}}" method="GET" enctype="multipart/form-data">
-                            <button type="submit" class="btn btn-primary mb-3">Add Product</button>
+                        <form action="{{route('workshop.create')}}" method="GET" enctype="multipart/form-data">
+                            <button type="submit" class="btn btn-primary mb-3">Add Workshop</button>
                         </form>
                     </div>
                     @endauth

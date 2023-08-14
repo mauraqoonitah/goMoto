@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\ProductController;
+use App\Http\Controllers\WorkshopController;
 use App\Http\Controllers\Auth;
 /*
 |--------------------------------------------------------------------------
@@ -36,7 +36,7 @@ Route::group(['middleware' => ['auth']], function() {
             
             // admin
             Route::resource('admin', AdminController::class);
-            Route::resource('product', ProductController::class);
+            Route::resource('workshop', WorkshopController::class);
 
     });
 });
