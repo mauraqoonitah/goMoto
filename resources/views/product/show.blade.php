@@ -10,7 +10,6 @@
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="col-10">
-                    @auth
                     <div class="container my-5">
                         <a href="{{route('index')}}">Back</a>
                         <h1 class="my-3">Booking Service</h1>
@@ -20,7 +19,9 @@
                         <div class="alert alert-success d-flex align-items-center" role="alert">
                             <i class="fa-regular fa-circle-check me-2"></i>
                             <div>
-                                {{ session('success') }} Click <a href="#" class="alert-link">here</a> to see
+                                {{ session('success') }} Click <a href="{{route('booking.show', Auth::user()->id)}}"
+                                    class="alert-link">here</a>
+                                to see
                                 details.
                             </div>
                         </div>
@@ -71,12 +72,7 @@
                         </div>
 
                     </div>
-                    @endauth
 
-                    @guest
-                    <h1>Homepage</h1>
-                    <p class="lead">Your viewing the home page. Please login to view the restricted data.</p>
-                    @endguest
 
 
                 </div>

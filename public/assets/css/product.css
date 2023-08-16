@@ -88,3 +88,6 @@ input[type="date"]{
     cursor: pointer;
     border-radius: 3px;
 }
+
+#card-hover { transition: all .2s ease-in-out; }
+#card-hover:hover { background-color: #eeeeee ; }

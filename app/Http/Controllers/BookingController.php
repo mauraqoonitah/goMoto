@@ -66,9 +66,13 @@ class BookingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($user_id)
     {
-        //
+        $bookings = Booking::with('workshops.motorcycles')->where('user_id', $user_id)->get();
+
+        return view('booking.show', [
+            'bookings' => $bookings,
+        ]);
     }
 
     /**
@@ -79,7 +83,10 @@ class BookingController extends Controller
      */
     public function edit($id)
     {
-        //
+        $bookings = Booking::with('workshops.motorcycles')->where('id', $id)->first();
+        return view('booking.edit', [
+            'bookings' => $bookings,
+        ]);
     }
 
     /**
@@ -97,11 +104,12 @@ class BookingController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Booking  $Booking
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Booking $booking)
     {
-        //
+        $booking->delete();
+        return redirect()->back()->withSuccess(__('Booking canceled successfully.'));
     }
 }

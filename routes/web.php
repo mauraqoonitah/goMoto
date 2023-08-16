@@ -41,7 +41,6 @@ Route::group(['middleware' => ['auth']], function() {
             
             Route::resource('/booking', BookingController::class);
 
-
             // admin
             Route::resource('admin', AdminController::class);
             Route::resource('workshop', WorkshopController::class);

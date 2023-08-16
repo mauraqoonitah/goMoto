@@ -124,10 +124,11 @@
                             <li class="nav-item"><a class="nav-link dropdown-item ps-3" href="{{route('dashboard')}}"><i
                                         class="fa-solid fa-house me-2"></i>Dashboard</a></li>
                             <li class="nav-item"><a class="nav-link dropdown-item ps-3"
-                                    href="{{route('dashboard')}}#cart"><i class="fa-solid fa-cart-shopping me-2"></i>My
-                                    Cart</a></li>
+                                    href="{{route('booking.show', Auth::user()->id)}}"><i
+                                        class="fa-solid fa-cart-shopping me-2"></i>My
+                                    Bookings</a></li>
                             <li class="nav-item"><a class="nav-link dropdown-item ps-3" href="{{route('profile')}}"><i
-                                        class="fa-solid fa-user-pen me-2"></i>Edit
+                                        class="fa-solid fa-user-pen me-2"></i>My
                                     Profile</a></li>
                             <li class="nav-item"><a class="nav-link dropdown-item ps-3" href="{{route('logout')}}"><i
                                         class="fa-solid fa-right-to-bracket me-2"></i> Logout</a></li>
