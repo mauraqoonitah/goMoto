@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="en">
 
-{{-- @include('components.header') --}}
+@include('components.header')
 
 <body>
-    {{-- @include('components.navbar') --}}
+    @include('components.navbar')
 
     <main>
         <div class="container">
@@ -63,7 +63,7 @@
 
     </main>
 
-    {{-- @include('components.footer') --}}
+    @include('components.footer')
 </body>
 
 </html>

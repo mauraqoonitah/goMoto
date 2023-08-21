@@ -81,7 +81,7 @@
     </symbol>
 </svg>
 
-<nav class="navbar navbar-expand-md sticky-top border-bottom">
+<nav class="navbar navbar-expand-md bg-body-tertiary sticky-top border-bottom">
     <div class="container">
         <a class="navbar-brand d-md-none" href="#">
             <svg class="bi" width="24" height="24">
@@ -110,7 +110,7 @@
                             Product</a></li>
                     @auth
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             @if(Auth::user()->avatar)
                             <img src="{{asset('storage/'.Auth::user()->avatar)}}" alt="avatar" title="avatar"
@@ -120,7 +120,7 @@
                             @endif
                             {{Auth::user()->name}}
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                        <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
                             <li class="nav-item"><a class="nav-link dropdown-item ps-3" href="{{route('dashboard')}}"><i
                                         class="fa-solid fa-house me-2"></i>Dashboard</a></li>
                             <li class="nav-item"><a class="nav-link dropdown-item ps-3"

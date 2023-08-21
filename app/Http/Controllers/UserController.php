@@ -34,7 +34,7 @@ class UserController extends Controller
     {
         if(Auth::user()){
             if((Auth::user()->role) == 1){
-                return view('admin.index');
+                return view('admin.dashboard');
             }else{
                 return view('dashboard');
             }
