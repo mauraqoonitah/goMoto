@@ -1,13 +1,13 @@
 <!doctype html>
-<html lang="en" data-bs-theme="light">
+<html lang="en">
 
 @include('components.header')
 
-<body>
+<body class="bg-body-tertiary">
     @include('components.navbar')
 
     <main>
-        <div class="position-relative overflow-hidden p-3 p-md-5 text-center bg-body-tertiary">
+        <div class="position-relative overflow-hidden p-3 p-md-5 text-center ">
             <div class="col-md-8 p-lg-5 mx-auto my-5">
                 <h1 class="display-3 fw-bold">GoMoto</h1>
                 <h3 class="fw-normal text-muted mb-3">The largest digital platform for motor-enthusiasts of all riding

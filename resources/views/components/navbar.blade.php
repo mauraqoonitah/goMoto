@@ -18,7 +18,7 @@
     </symbol>
 </svg>
 
-<div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+{{-- <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
     <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button"
         aria-expanded="false" data-bs-toggle="dropdown" aria-label="Toggle theme (auto)">
         <svg class="bi my-1 theme-icon-active" width="1em" height="1em">
@@ -64,7 +64,7 @@
             </button>
         </li>
     </ul>
-</div>
+</div> --}}
 
 
 <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
@@ -81,7 +81,7 @@
     </symbol>
 </svg>
 
-<nav class="navbar navbar-expand-md bg-dark sticky-top border-bottom" data-bs-theme="dark">
+<nav class="navbar navbar-expand-md sticky-top border-bottom">
     <div class="container">
         <a class="navbar-brand d-md-none" href="#">
             <svg class="bi" width="24" height="24">
