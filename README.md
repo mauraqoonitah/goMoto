@@ -16,6 +16,9 @@ Download zip / Clone the repo ```https://github.com/mauraqoonitah/goMoto.git```
 4. ```php artisan db:seed --6. class=MotorcycleSeeder```
 5. ```php artisan db:seed --class=BookingSeeder```
 
+## Database design
+<img src="./screenshot/db_designer.png" width="600" />
+
 ## Screenshot GoMoto (user)
 #### Landing Page
 <img src="./screenshot/ss_1.png" width="600" />
