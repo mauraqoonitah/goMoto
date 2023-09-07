@@ -35,6 +35,7 @@ Download zip / Clone the repo ```https://github.com/mauraqoonitah/goMoto.git```
 
 #### See my orders (Booking details, cancel or delete bookings)
 <img src="./screenshot/ss_5.png" width="600" />
+<img src="./screenshot/ss_5_1.png" width="600" />
 
 ## Screenshot GoMoto (admin)
 
