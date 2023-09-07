@@ -16,6 +16,7 @@ class Booking extends Model
         'user_id',
         'booking_number',
         'book_date',
+        'status'
     ];
 
     /**

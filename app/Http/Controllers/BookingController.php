@@ -9,6 +9,10 @@ use App\Models\User;
 use App\Models\Booking;
 use Illuminate\Support\Facades\Auth;
 use Str;
+use App\Jobs\BookingEmailJob;
+
+use App\Mail\BookingMail;
+use Mail;
 
 class BookingController extends Controller
 {
@@ -68,7 +72,7 @@ class BookingController extends Controller
      */
     public function show($user_id)
     {
-        $bookings = Booking::with('workshops.motorcycles')->where('user_id', $user_id)->get();
+        $bookings = Booking::with('workshops.motorcycles')->where('user_id', $user_id)->orderBy('updated_at','desc')->get();
 
         return view('booking.show', [
             'bookings' => $bookings,
@@ -109,7 +113,26 @@ class BookingController extends Controller
      */
     public function destroy(Booking $booking)
     {
-        $booking->delete();
-        return redirect()->back()->withSuccess(__('Booking canceled successfully.'));
+        $startime = microtime(true);
+        $data = [
+            'email' => $booking->user->email,
+            'user_id' => $booking->user->id,
+            'booking_id' => $booking->id,
+        ];
+        
+        $booking->update([
+            'status'=>'canceled'
+        ]);
+
+        dispatch(new BookingEmailJob($data));
+        
+        return redirect()->back()->withSuccess(__(' Success! please check your email for details. '));
+
+        // $endtime = microtime(true);
+        // $timediff = $endtime - $startime;
+        // return redirect()->back()->withSuccess(__(' Success! ' . sprintf('%0.6f', $timediff)));
+
+        // $booking->delete();
+        // return redirect()->back()->withSuccess(__('Booking canceled successfully.'));
     }
 }

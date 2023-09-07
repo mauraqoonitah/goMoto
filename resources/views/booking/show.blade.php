@@ -17,8 +17,7 @@
                         <div class="alert alert-success d-flex align-items-center" role="alert">
                             <i class="fa-regular fa-circle-check me-2"></i>
                             <div>
-                                {{ session('success') }} Click <a href="#" class="alert-link">here</a> to see
-                                details.
+                                {{ session('success') }}
                             </div>
                         </div>
                         @endif
@@ -40,8 +39,7 @@
                             @endphp
 
                             <div class="col-6">
-                                <a href="{{route('booking.edit', $booking->id)}}"
-                                    class="card text-decoration-none mb-3 bg-body-tertiary p-0 m-0">
+                                <div  class="card text-decoration-none mb-3 bg-body-tertiary p-0 m-0">
                                     <div class="card-body row p-0 m-0 " id="card-hover">
                                         <div class="col-8 ">
                                             <div class="p-2">
@@ -53,14 +51,31 @@
                                                 <div class="fs-6 lead">Booking ID</div>
                                                 <div class="fs-6">{{$booking->booking_number}}</div>
                                             </div>
-                                            <div class="p-2">
-                                                <form method="post" action="{{route('booking.destroy',$booking->id)}}">
-                                                    @method('delete')
-                                                    @csrf
-                                                    <button class="btn btn-danger" type="submit"
-                                                        onclick="return confirm('Are you sure to delete data?');">Cancel
-                                                        Booking</button>
-                                                </form>
+                                            <div style="height:64px;">
+                                                @if($booking->status == 'pending')
+                                                <div class="p-2">
+                                                    <form method="post" action="{{route('booking.destroy',$booking->id)}}">
+                                                        @method('delete')
+                                                        @csrf
+                                                        <button class="btn btn-danger" type="submit"
+                                                            onclick="return confirm('Are you sure to cancel your booking?');">Cancel
+                                                            Booking</button>
+                                                    </form>
+    
+                                                </div>
+                                                @elseif($booking->status == 'completed')
+                                                <div class="p-2">
+                                                    <div class="small fst-italic text-success fw-semibold"><i class="fa-regular fa-bell me-2"></i>Successfully completed</div>
+                                                </div>
+                                                @elseif($booking->status == 'canceled')
+                                                <div class="p-2">
+                                                    <div class="small fst-italic text-warning fw-semibold"><i class="fa-regular fa-bell me-2"></i>Awaiting Confirmation of Cancellation</div>
+                                                </div>
+                                                @elseif($booking->status == 'confirmed')
+                                                <div class="p-2">
+                                                    <div class="small fst-italic text-danger fw-semibold"><i class="fa-regular fa-bell me-2"></i>Cancel Confirmed</div>
+                                                </div>
+                                                @endif
 
                                             </div>
 
@@ -117,7 +132,7 @@
                                             </div>
                                         </form> --}}
                                     </div>
-                                </a>
+                                </div>
                             </div>
 
                             @endforeach
